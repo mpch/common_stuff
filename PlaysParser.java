@@ -109,6 +109,8 @@ public class HtmlParser {
 		private StringBuilder stringBuilder;
 
 		private List<PlayByPlayItem> plays;
+		
+		private boolean itemElement;
 
 		public List<PlayByPlayItem> getPlays() {
 			return plays;
@@ -126,6 +128,7 @@ public class HtmlParser {
 			super.startElement(uri, localName, qName, attributes);
 			if (qName.equalsIgnoreCase(ITEM)) {
 				this.playByPlay = new PlayByPlayItem();
+				itemElement = true;
 			}
 		}
 
@@ -139,7 +142,7 @@ public class HtmlParser {
 		public void endElement(String uri, String localName, String qName) throws SAXException {
 			super.endElement(uri, localName, qName);
 			if (playByPlay != null) {
-				if (qName.equalsIgnoreCase(TITLE)) {
+				if (qName.equalsIgnoreCase(TITLE) && itemElement) {
 					playByPlay.setDescription(stringBuilder.toString());
 				} else if (qName.equalsIgnoreCase(SCORE)) {
 					playByPlay.setScore(stringBuilder.toString());
@@ -151,6 +154,7 @@ public class HtmlParser {
 					playByPlay.setMinute(stringBuilder.toString());
 				} else if (qName.equalsIgnoreCase(ITEM)) {
 					plays.add(playByPlay);
+					itemElement = false;
 				}
 				stringBuilder.setLength(0);
 			}
