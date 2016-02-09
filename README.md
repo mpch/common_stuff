@@ -1,2 +1,6 @@
-# common_stuff
-Repository to store useful stuff for development
+# Miscellaneous
+Repository to store stuff to check later like:
+
+- Pieces of code
+- Webpages
+- Documentation
