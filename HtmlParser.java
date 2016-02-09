@@ -157,9 +157,16 @@ public class HtmlParser {
 			this.valorization = valorization;
 		}
 
-		@Override
-		public String toString() {
-			return playing + ": " + name + "---" + number + "/n";
+		public int compareTo(PlayerStatsItem other) {
+			int returnValue = 0;
+			if (playing && !other.isPlaying()) {
+				returnValue = -1;
+			} else if (!playing && other.isPlaying()) {
+				returnValue = 1;
+			} else {
+				returnValue = name.compareTo(other.getName());
+			}
+			return returnValue;
 		}
 	}
 
