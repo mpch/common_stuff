@@ -2,5 +2,5 @@
 Repository to store stuff to check later like:
 
 - Pieces of code
-- Webpages
-- Documentation
+- Documentation limks
+- Apps to check as source of ideas
