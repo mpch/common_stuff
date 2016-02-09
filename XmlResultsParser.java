@@ -10,7 +10,7 @@
 			SAXParserFactory spf = SAXParserFactory.newInstance();
 			SAXParser saxParser = spf.newSAXParser();
 			ResultHandler resultHandler = new ResultHandler();
-			saxParser.parse(new FileInputStream("C:\\Users\\e388630\\Desktop\\results.xml"), resultHandler);
+			saxParser.parse(new FileInputStream("C:\\Users\\xxxxxx\\Desktop\\results.xml"), resultHandler);
 			System.out.println(resultHandler.getResults());
 		} catch (SAXNotRecognizedException e) {
 			// TODO Auto-generated catch block
