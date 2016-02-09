@@ -10,11 +10,11 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-public class HtmlParser {
+public class MatchStatsParser {
 
 	public static void main(String[] args) {
 		try {
-			List<PlayerStatsItem> playerStatsList = new ArrayList<HtmlParser.PlayerStatsItem>();
+			List<PlayerStatsItem> playerStatsList = new ArrayList<PlayerStatsItem>();
 			// Document teamStatsDocument = Jsoup.connect("http://ws.acb.com/mobile?action=getMatchStats&match=155&team=CAN").get();
 			Document teamStatsDocument = Jsoup.parse(new File("C:\\Users\\______\\Desktop\\stats.xml"), "UTF-8");
 			long time =System.currentTimeMillis();
