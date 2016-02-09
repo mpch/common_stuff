@@ -16,7 +16,7 @@ public class HtmlParser {
 		try {
 			List<PlayerStatsItem> playerStatsList = new ArrayList<HtmlParser.PlayerStatsItem>();
 			// Document teamStatsDocument = Jsoup.connect("http://ws.acb.com/mobile?action=getMatchStats&match=155&team=CAN").get();
-			Document teamStatsDocument = Jsoup.parse(new File("C:\\Users\\e388630\\Desktop\\stats.xml"), "UTF-8");
+			Document teamStatsDocument = Jsoup.parse(new File("C:\\Users\\______\\Desktop\\stats.xml"), "UTF-8");
 			long time =System.currentTimeMillis();
 			for (Element playersTable : teamStatsDocument.select("table.cols-fijas")) {
 				for (Element playerRow : playersTable.getElementsByTag("tr")) {
@@ -170,4 +170,26 @@ public class HtmlParser {
 		}
 	}
 
+	static class MatchStatsItem {
+		List<PlayerStatsItem> localTeamStats;
+		
+		List<PlayerStatsItem> visitorTeamStats;
+
+		public List<PlayerStatsItem> getLocalTeamStats() {
+			return localTeamStats;
+		}
+
+		public void setLocalTeamStats(List<PlayerStatsItem> localTeamStats) {
+			this.localTeamStats = localTeamStats;
+		}
+
+		public List<PlayerStatsItem> getVisitorTeamStats() {
+			return visitorTeamStats;
+		}
+
+		public void setVisitorTeamStats(List<PlayerStatsItem> visitorTeamStats) {
+			this.visitorTeamStats = visitorTeamStats;
+		}
+		
+	}
 }
